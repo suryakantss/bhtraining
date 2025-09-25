@@ -12,7 +12,7 @@
         <tbody>
             @for (p of products; track $index) {
             <tr>
-                <td>{{p.id}}</td>
+                <td><a [routerLink]="['details',p.id]">{{p.id}}</a></td>
                 <td>{{p.name}}</td>
                 <td>{{p.price}}</td>
             </tr>
@@ -22,9 +22,14 @@
                 <th><input type="text" #pname></th>
                 <th><input type="text" #price></th>
             </tr>
-            <tr >
-                <th colspan="3"><button (click)="addProduct(pid,pname,price)">Add</button></th>
+            <tr>
+                <th colspan="3">
+                    <button (click)="addProduct(pid,pname,price)">Add</button>
+                    <button (click)="gohome()">Home</button>
+
+                </th>
             </tr>
         </tbody>
     </table>
+    <router-outlet></router-outlet>
 </div>

@@ -1,16 +1,18 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Product } from './product.model';
 import { ProductService } from './product.service';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-products',
-  imports: [],
+  imports: [RouterLink, RouterOutlet],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
 export class ProductsComponent implements OnInit {
   products: Array<Product> = [];
    private ps:ProductService = inject(ProductService); 
+   private router:Router = inject(Router);
   //constructor injection
   constructor(){
 
@@ -32,5 +34,8 @@ export class ProductsComponent implements OnInit {
         id.value='';
         name.value='';
         price.value='';
+  }
+  public gohome(){
+   this.router.navigate(['']);
   }
 }
