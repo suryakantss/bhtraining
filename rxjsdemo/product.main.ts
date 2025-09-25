@@ -1,3 +1,4 @@
+import { filter } from "rxjs";
 import { ProductService } from "./product.service";
 
 
@@ -16,3 +17,5 @@ ps.searchAsync().subscribe({
         //sub.unsubscribe();
     }
 })
+console.log("===============");
+

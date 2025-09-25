@@ -1,0 +1,12 @@
+<img [src]="logo" width="100px">
+<h3>Greet Component!!</h3>
+
+<ol>
+    <li *ngFor="let m of msgs">{{m}}</li>
+</ol>
+<hr>
+<ol>
+@for (m of msgs; track $index) {
+    <li>{{m}}</li>
+}
+</ol>
