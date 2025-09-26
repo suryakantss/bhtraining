@@ -8,5 +8,6 @@ export const routes: Routes = [
     {path:'products',loadComponent:()=> import('./features/products/products.component').then(c=>c.ProductsComponent),title:'Products',children:[
         {path:'details/:id',component:DetailsComponent,title:'Details'}
     ]},
+     {path:'blog',loadComponent:()=>import('./features/blog/blog.component').then(c=>c.BlogComponent),title:'Blog'},
 
 ];

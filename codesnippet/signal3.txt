@@ -1,0 +1,40 @@
+import { Component, Signal, WritableSignal, computed, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-signal',
+  standalone: true,
+  imports: [],
+  templateUrl: './signal.component.html',
+  styleUrl: './signal.component.css'
+})
+export class SignalComponent {
+  public fname: WritableSignal<string> = signal('');
+  public lname: WritableSignal<string> = signal('');
+  public dname: Signal<string> = computed(() => this.fname() + " " + this.lname());
+
+  public save(fname: string, lname: string) {
+    this.fname.set(fname);
+    this.lname.set(lname);
+
+  }
+  constructor() {
+
+  }
+}
+=============================
+<div>
+    <label for="First Name">First Name</label>
+    <input type="text" #fname>
+</div>
+<div>
+    <label for="Last Name">Last Name</label>
+    <input type="text" #lname>
+</div>
+<div>
+    <button (click)="save(fname.value,lname.value)">Save</button>
+</div>
+<div>
+    <p>{{dname()}}</p>
+</div>
+=============================

@@ -1,0 +1,28 @@
+@Component({  
+  selector: 'my-cart',  
+  template: `  
+    <ul>  
+      <li *ngFor="let item of goods">  
+         - $  
+        <button (click)="removeItem(item)">Remove</button>  
+      </li>  
+    </ul>  
+    Total Price: $  
+  `,  
+})  
+export class CartComponent {  
+  goods = [    { name: 'Product 1', price: 10 },    { name: 'Product 2', price: 20 },    { name: 'Product 3', price: 30 },  ];  
+
+  // Define a signal for the list of items  
+  itemList = signal(this.goods);  
+
+  // Define a computed value for the total price  
+  total = computed(() => {  
+    return this.itemList().reduce((acc, curr) => acc + curr.price, 0);  
+  });  
+
+  removeItem(item) {  
+    // Update the itemList signal by removing the selected item  
+    this.itemList.set(this.itemList().filter((i) => i !== item));  
+  }  
+}

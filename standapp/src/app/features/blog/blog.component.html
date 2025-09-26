@@ -1,0 +1,16 @@
+<div>
+
+    <h3>Spring AI</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis blanditiis excepturi quaerat, cumque aperiam necessitatibus. Ea voluptate pariatur, sit voluptatem provident fugiat aut sint animi dolores accusamus amet inventore consectetur consequatur fugit eligendi aspernatur exercitationem tempora, libero quidem deleniti doloribus facere quisquam corrupti beatae! Praesentium eum recusandae temporibus enim eveniet, fugit, dolorum nostrum illo autem ea amet ipsum! Corporis voluptas totam in sit deleniti placeat! Accusamus eveniet quibusdam necessitatibus veritatis asperiores earum esse aliquid officia dolorum eaque, quas error quia commodi. Qui hic facilis unde officiis ea consequuntur commodi tenetur iure ipsa. Sunt deleniti alias non nihil magnam, aspernatur corporis similique, dignissimos quibusdam odit doloremque facilis officiis possimus corrupti minima quidem facere vitae, illo vel exercitationem autem animi aliquid porro officia! Et sint dolorem quos maxime officia ratione at itaque. Minus nesciunt exercitationem numquam nemo, eligendi aspernatur excepturi provident perferendis doloribus est voluptates et, illo ad laboriosam saepe veniam expedita corporis pariatur eaque natus. Reiciendis aliquid eos doloribus expedita dolore veritatis eius nemo. Molestias sapiente commodi ad aspernatur. Maxime facere id, ad laboriosam a, dolore sed expedita porro natus accusantium placeat, voluptatum quae beatae officia. Suscipit modi quae temporibus dolorem reprehenderit facilis, laudantium omnis, debitis harum, voluptatem obcaecati hic aliquam.</p>
+</div>
+<div>
+    <h3>Comments</h3>
+    <ol>
+        @for (c  of comments; track $index) {
+            <li>{{c}}</li>
+        }
+    </ol>
+</div>
+<div>
+    <app-comment (comment)="handle($event)"></app-comment>
+</div>

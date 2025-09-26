@@ -1,0 +1,17 @@
+
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const modifiedReq = req.clone({
+      headers: req.headers.append('Authorization', 'Bearer my-token')
+    });
+    return next.handle(modifiedReq);
+  }
+}
+----------------------
+providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true
+    }
+  ]
+

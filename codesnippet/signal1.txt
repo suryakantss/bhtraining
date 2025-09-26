@@ -1,0 +1,28 @@
+import { Component, Signal, WritableSignal, computed, signal } from '@angular/core';
+
+@Component({
+  selector: 'app-signal',
+  standalone: true,
+  imports: [],
+  templateUrl: './signal.component.html',
+  styleUrl: './signal.component.css'
+})
+export class SignalComponent {
+
+  constructor() {
+    let student:WritableSignal<any> = signal({ name: 'John', age: 65 });
+    
+    let status:Signal<any> = computed(() => {
+      if (student().age > 60)
+        return 'Senior';
+      if (student().age < 18)
+        return 'Kid';
+      return "NA";
+    });
+    
+    console.log(status());
+    student.set({name:'John',age:10})
+    console.log(status());
+
+  }
+}

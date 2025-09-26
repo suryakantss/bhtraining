@@ -1,0 +1,54 @@
+Deferred loading with @defer
+------------------------------
+@defer {
+  <large-component />
+}
+------------------------------
+@defer {
+  <large-component />
+} @placeholder {
+  <p>Placeholder content</p>
+}
+-----------------------------
+
+@defer {
+  <large-component />
+} @placeholder (minimum 500ms) {
+  <p>Placeholder content</p>
+}
+----------------------------
+@defer {
+  <large-component />
+} @loading {
+  <img alt="loading..." src="loading.gif" />
+} @placeholder {
+  <p>Placeholder content</p>
+}
+---------------------------
+@defer {
+  <large-component />
+} @error {
+  <p>Failed to load large component.</p>
+
+}
+--------------------------
+
+@defer (on interaction) {
+  <large-cmp />
+} @placeholder {
+  <div>Large component placeholder</div>
+}
+
+---------------------------
+@defer (on hover) {
+  <large-cmp />
+} @placeholder {
+  <div>Large component placeholder</div>
+}
+---------------------------
+@defer (on timer(500ms)) {
+  <large-cmp />
+} @placeholder {
+  <div>Large component placeholder</div>
+}
+
