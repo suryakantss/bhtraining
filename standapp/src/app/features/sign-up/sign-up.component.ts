@@ -1,19 +1,30 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
+import { Component} from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {CommonModule} from '@angular/common';
 @Component({
-  selector: 'app-sign-up',
-  imports: [ReactiveFormsModule],
+  selector: 'app-signup',
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css'
 })
-export class SignUpComponent {
-  frm: FormGroup = new FormGroup({
-    fname: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required,Validators.email]),
-  });
+export class SignupComponent {
+  signupform: FormGroup;
+  constructor(private fb: FormBuilder) {
+    this.signupform = this.fb.group({
+      fname: [''],
+      emails: this.fb.array([this.fb.control('')])
+    })
+  }
 
-  public doSignUp():void {
-    alert('Thank You ' + this.frm.get('fname')?.value);
+  public save(): void {
+    alert(this.signupform.get('fname')?.value + " : " + this.signupform.get('emails')?.value);
+  }
+  public get emails() {
+    return this.signupform.get('emails') as FormArray;
+  }
+
+  public addEmail() {
+    this.emails.push(this.fb.control(''));
   }
 }

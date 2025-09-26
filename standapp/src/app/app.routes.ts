@@ -14,7 +14,8 @@ export const routes: Routes = [
     },
     { path: 'blog', loadComponent: () => import('./features/blog/blog.component').then(c => c.BlogComponent), title: 'Blog', canActivate: [authGuard] },
     { path: 'signin', loadComponent: () => import('./features/sign-in/sign-in.component').then(c => c.SignInComponent), title: 'SignIn' },
-    { path: 'signup', loadComponent: () => import('./features/sign-up/sign-up.component').then(c => c.SignUpComponent), title: 'SignUp' },
+    { path: 'signup', loadComponent: () => import('./features/sign-up/sign-up.component').then(c => c.SignupComponent), title: 'SignUp' },
     { path: 'calc', loadComponent: () => import('./features/calc/calc.component').then(c => c.CalcComponent), title: 'Calc' },
+    { path: 'users', loadComponent: () => import('./features/users/users.component').then(c => c.UsersComponent), title: 'Users' },
 
 ];
