@@ -17,8 +17,9 @@ describe('CounterComponent', () => {
     fixture = TestBed.createComponent(CounterComponent);
     component = fixture.componentInstance;
     cs = TestBed.inject(CounterService);
-    //spyOn(cs,'inc').and.returnValue(2);
-    fixture.detectChanges();
+    spyOn(cs,'inc').and.returnValue(1);
+    spyOn(cs,'dec').and.returnValue(-1);
+     fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -29,13 +30,17 @@ describe('CounterComponent', () => {
     expect(component.count).toEqual(0);
   })
   
-  it('increment the count click',()=>{
+  it('increment the count on click',()=>{
     fixture.nativeElement.querySelector('button[id="i"]').click();
-    fixture.nativeElement.querySelector('button[id="i"]').click();
-    
     fixture.detectChanges();
-    expect(component.count).toEqual(2);
+    expect(component.count).toEqual(1);
+  });
 
+    it('decrement the count on click',()=>{
+    fixture.nativeElement.querySelector('button[id="d"]').click();
+    fixture.detectChanges();
+    expect(component.count).toEqual(-1);
   })
+
 
 });

@@ -1,6 +1,6 @@
 import { TestBed } from "@angular/core/testing";
 import { GreetService } from "./greet.service";
-xdescribe('test suite for greetservice',()=>{
+describe('test suite for greetservice',()=>{
 
     let gs:GreetService ;
 
